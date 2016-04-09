@@ -62,6 +62,9 @@ window.onload = function() {
 			}
 		}
 	});
+	$("#undo").on("click",function(){
+		//dostuff
+	});
 	$(".btn").on("click",function(){
 		location.reload();
 	});
