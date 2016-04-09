@@ -64,7 +64,53 @@ window.onload = function() {
 	});
 	$("#undo").on("click",function(){
 		//dostuff
-		
+		taken.pop();
+		$(".current").innerHTML = "";
+		$(".current").removeClass("current");
+		$(".cango").removeClass("cango");
+		pos = taken[taken.lenght-1].split(",");
+		row = pos[0];
+		col = pos[1];
+		current = $(".row"+row+".col"+col);
+		index = index - 1;
+		$(current).css("cursor","default");
+		$(current).addClass("noclick");
+		$(current).addClass("current");
+		cango = [];
+		if(row - 3 > 0 && taken.indexOf((row - 3).toString() + "," + col) === -1){
+			cango[cango.length] = (row - 3).toString() + "," + col.toString();
+		}
+		if(row + 3 < 6 && taken.indexOf((row + 3).toString() + "," + col) === -1){
+			cango[cango.length] = (row + 3).toString() + "," + col.toString();
+		}
+		if(col - 3 > 0 && taken.indexOf(row + "," + (col - 3).toString()) === -1){
+			cango[cango.length] = row + "," + (col - 3).toString();
+		}
+		if(col + 3 < 6 && taken.indexOf(row + "," + (col + 3).toString()) === -1){
+			cango[cango.length] = row + "," + (col + 3).toString();
+		}
+		if(row - 2 > 0 && col - 2 > 0 && taken.indexOf((row - 2).toString() + "," + (col - 2).toString()) === -1){
+			cango[cango.length] = (row - 2).toString() + "," + (col - 2).toString();
+		}
+		if(row + 2 < 6 && col + 2 < 6 && taken.indexOf((row + 2).toString() + "," + (col + 2).toString()) === -1){
+			cango[cango.length] = (row + 2).toString() + "," + (col + 2).toString();
+		}
+		if(row - 2 > 0 && col + 2 < 6 && taken.indexOf((row - 2).toString() + "," + (col + 2).toString()) === -1){
+			cango[cango.length] = (row - 2).toString() + "," + (col + 2).toString();
+		}
+		if(row + 2 < 6 && col - 2 > 0 && taken.indexOf((row + 2).toString() + "," + (col - 2).toString()) === -1){
+			cango[cango.length] = (row + 2).toString() + "," + (col - 2).toString();
+		}
+		if(cango.length === 0){
+			$("#modal").modal();
+		}else{
+			var nowcango;
+			for(var i = 0; i < cango.length;i++){
+				nowcango = cango[i].split(",");
+				nowcango = ".row" + nowcango[0] + ".col" + nowcango[1];
+				$(nowcango).addClass("cango");
+			}
+		}
 	});
 	$(".btn").on("click",function(){
 		location.reload();
