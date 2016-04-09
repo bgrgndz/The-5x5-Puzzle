@@ -124,6 +124,13 @@
 						}
 						if(cango.length === 0){
 							$("#modal").modal();
+						}else{
+							var nowcango;
+							for(var i = 0; i < cango.length;i++){
+								nowcango = cango[i].split(",");
+								nowcango = ".row" + nowcango[0] + ".col" + nowcango[1];
+								$(nowcango).addClass("cango"); 
+							}
 						}
 					}
 				}
