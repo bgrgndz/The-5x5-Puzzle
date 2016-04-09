@@ -78,7 +78,7 @@ window.onload = function() {
 		pos = pos.split(",");
 		row = pos[0];
 		col = pos[1];
-		alert("Row:"+row+"Col:"+col);
+		alert(row + 3);
 		current = $(".row" + row + ".col" + col);
 		index = index - 1;
 		$(current).css("cursor","default");
@@ -87,37 +87,27 @@ window.onload = function() {
 		cango = [];
 		if(row - 3 > 0 && taken.indexOf((row - 3).toString() + "," + col) === -1){
 			cango[cango.length] = (row - 3).toString() + "," + col.toString();
-			alert("1");
 		}
 		if(row + 3 < 6 && taken.indexOf((row + 3).toString() + "," + col) === -1){
 			cango[cango.length] = (row + 3).toString() + "," + col.toString();
-			alert("2");
-		}else if(!(row + 3 < 6)){
-			alert("trigger alert");
 		}
 		if(col - 3 > 0 && taken.indexOf(row + "," + (col - 3).toString()) === -1){
 			cango[cango.length] = row + "," + (col - 3).toString();
-			alert("3");
 		}
 		if(col + 3 < 6 && taken.indexOf(row + "," + (col + 3).toString()) === -1){
 			cango[cango.length] = row + "," + (col + 3).toString();
-			alert("4");
 		}
 		if(row - 2 > 0 && col - 2 > 0 && taken.indexOf((row - 2).toString() + "," + (col - 2).toString()) === -1){
 			cango[cango.length] = (row - 2).toString() + "," + (col - 2).toString();
-			alert("5");
 		}
 		if(row + 2 < 6 && col + 2 < 6 && taken.indexOf((row + 2).toString() + "," + (col + 2).toString()) === -1){
 			cango[cango.length] = (row + 2).toString() + "," + (col + 2).toString();
-			alert("6");
 		}
 		if(row - 2 > 0 && col + 2 < 6 && taken.indexOf((row - 2).toString() + "," + (col + 2).toString()) === -1){
 			cango[cango.length] = (row - 2).toString() + "," + (col + 2).toString();
-			alert("7");
 		}
 		if(row + 2 < 6 && col - 2 > 0 && taken.indexOf((row + 2).toString() + "," + (col - 2).toString()) === -1){
 			cango[cango.length] = (row + 2).toString() + "," + (col - 2).toString();
-			alert("8");
 		}
 		if(cango.length === 0){
 			/*$("#modal").modal();*/
