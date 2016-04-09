@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>The 5x5 Puzzle</title>
+	<link href='https://fonts.googleapis.com/css?family=Oxygen:400,700,300&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+	<script   src="https://code.jquery.com/jquery-2.2.3.min.js"   integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo="   crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="stylesheet.css">
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div id="header">
+		<h1>The 5x5 Puzzle</h1>
+		<div id="howto">
+			Line up the numbers from 1 to 25 in the table. Leave <strong>two spaces</strong> when going right, left, up or down; leave <strong>1 space</strong> when going diagonal. Try to reach <strong>the number 25</strong>
+		</div>
+	</div>
+	<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">GAME OVER!</h4>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Restart?</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+	<div id="content">
+	<div id="gridcontainer">
+		<div class="gridrow">
+			<div class="gridcell col1 row1"></div>
+			<div class="gridcell col2 row1"></div>
+			<div class="gridcell col3 row1"></div>
+			<div class="gridcell col4 row1"></div>
+			<div class="gridcell col5 row1"></div>
+		</div>
+		<div class="gridrow">
+			<div class="gridcell col1 row2"></div>
+			<div class="gridcell col2 row2"></div>
+			<div class="gridcell col3 row2"></div>
+			<div class="gridcell col4 row2"></div>
+			<div class="gridcell col5 row2"></div>
+		</div>
+		<div class="gridrow">
+			<div class="gridcell col1 row3"></div>
+			<div class="gridcell col2 row3"></div>
+			<div class="gridcell col3 row3"></div>
+			<div class="gridcell col4 row3"></div>
+			<div class="gridcell col5 row3"></div>
+		</div>
+		<div class="gridrow">
+			<div class="gridcell col1 row4"></div>
+			<div class="gridcell col2 row4"></div>
+			<div class="gridcell col3 row4"></div>
+			<div class="gridcell col4 row4"></div>
+			<div class="gridcell col5 row4"></div>
+		</div>
+		<div class="gridrow">
+			<div class="gridcell col1 row5"></div>
+			<div class="gridcell col2 row5"></div>
+			<div class="gridcell col3 row5"></div>
+			<div class="gridcell col4 row5"></div>
+			<div class="gridcell col5 row5"></div>
+		</div>
+	</div>
+	<div id="footer">
+		Made by <a style="color:#47a7a6" href="http://www.bgrgndzdb.com/about">Buğra Gündüz</a>
+	</div>
+</div>
+	<script type="text/javascript">
+		window.onload = function() {
+			var cango = ["1,1","1,2","1,3","1,4","1,5",
+									 "2,1","2,2","2,3","2,4","2,5",
+									 "3,1","3,2","3,3","3,4","3,5",
+									 "4,1","4,2","4,3","4,4","4,5",
+									 "5,1","5,2","5,3","5,4","5,5"];
+			var index = 1;
+			var taken = [];
+			$(".gridcell").on("click",function() {
+				if(this.innerHTML === "" && this.className !== "noclick"){
+					var pos = this.className;
+					pos = pos.replace("gridcell ", "");
+					pos = pos.replace("row", "");
+					pos = pos.replace("col", "");
+					pos = pos.split(" ");
+					var col = parseInt(pos[0]);
+					var row = parseInt(pos[1]);
+					if(cango.indexOf(row.toString() + "," + col.toString()) !== -1){
+						$(".current").removeClass("current");
+						this.innerHTML = index;
+						index = index + 1;
+						$(this).css("cursor","default");
+						$(this).addClass("noclick");
+						$(this).addClass("current");
+						taken[taken.length] = row + "," + col;
+						cango = [];
+						if(row - 3 > 0 && taken.indexOf((row - 3).toString() + "," + col) === -1){
+							cango[cango.length] = (row - 3).toString() + "," + col.toString();
+						}
+						if(row + 3 < 6 && taken.indexOf((row + 3).toString() + "," + col) === -1){
+							cango[cango.length] = (row + 3).toString() + "," + col.toString();
+						}
+						if(col - 3 > 0 && taken.indexOf(row + "," + (col - 3).toString()) === -1){
+							cango[cango.length] = row + "," + (col - 3).toString();
+						}
+						if(col + 3 < 6 && taken.indexOf(row + "," + (col + 3).toString()) === -1){
+							cango[cango.length] = row + "," + (col + 3).toString();
+						}
+						if(row - 2 > 0 && col - 2 > 0 && taken.indexOf((row - 2).toString() + "," + (col - 2).toString()) === -1){
+							cango[cango.length] = (row - 2).toString() + "," + (col - 2).toString();
+						}
+						if(row + 2 < 6 && col + 2 < 6 && taken.indexOf((row + 2).toString() + "," + (col + 2).toString()) === -1){
+							cango[cango.length] = (row + 2).toString() + "," + (col + 2).toString();
+						}
+						if(row - 2 > 0 && col + 2 < 6 && taken.indexOf((row - 2).toString() + "," + (col + 2).toString()) === -1){
+							cango[cango.length] = (row - 2).toString() + "," + (col + 2).toString();
+						}
+						if(row + 2 < 6 && col - 2 > 0 && taken.indexOf((row + 2).toString() + "," + (col - 2).toString()) === -1){
+							cango[cango.length] = (row + 2).toString() + "," + (col - 2).toString();
+						}
+						if(cango.length === 0){
+							$("#modal").modal();
+						}
+					}
+				}
+			});
+			$(".btn").on("click",function(){
+				location.reload();
+			});
+		}
+	</script>
+</body>
+</html>
