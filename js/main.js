@@ -93,7 +93,7 @@ window.onload = function() {
 			cango[cango.length] = (row + 3).toString() + "," + col.toString();
 			alert("2");
 		}else if(!(row + 3 < 6)){
-
+			alert("trigger alert");
 		}
 		if(col - 3 > 0 && taken.indexOf(row + "," + (col - 3).toString()) === -1){
 			cango[cango.length] = row + "," + (col - 3).toString();
