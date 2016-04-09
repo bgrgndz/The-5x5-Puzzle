@@ -69,6 +69,7 @@ window.onload = function() {
 	$("#undo").on("click",function(){
 		//dostuff
 		taken.pop();
+		alert(taken);
 		$(".current").innerHTML = "";
 		$(".current").removeClass("current");
 		$(".noclick:last-of-type").removeClass("noclick");
