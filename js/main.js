@@ -68,9 +68,6 @@ window.onload = function() {
 	});
 	$("#undo").on("click",function(){
 		//dostuff
-<<<<<<< HEAD
-
-=======
 		taken.pop();
 		$(".current").innerHTML = "";
 		$(".current").removeClass("current");
@@ -118,7 +115,6 @@ window.onload = function() {
 				$(nowcango).addClass("cango");
 			}
 		}
->>>>>>> master
 	});
 	$(".btn").on("click",function(){
 		location.reload();
