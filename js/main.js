@@ -72,7 +72,7 @@ window.onload = function() {
 		alert(taken);
 		$(".current").innerHTML = "";
 		$(".current").removeClass("current");
-		$(".noclick:last-of-type").removeClass("noclick");
+		$(".noclick:last-child").removeClass("noclick");
 		$(".cango").removeClass("cango");
 		pos = taken[taken.length-1];
 		pos = pos.split(",");
@@ -92,6 +92,8 @@ window.onload = function() {
 		if(row + 3 < 6 && taken.indexOf((row + 3).toString() + "," + col) === -1){
 			cango[cango.length] = (row + 3).toString() + "," + col.toString();
 			alert("2");
+		}else if(!(row + 3 < 6)){
+
 		}
 		if(col - 3 > 0 && taken.indexOf(row + "," + (col - 3).toString()) === -1){
 			cango[cango.length] = row + "," + (col - 3).toString();
