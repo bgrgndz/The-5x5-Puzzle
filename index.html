@@ -91,6 +91,7 @@
 					var row = parseInt(pos[1]);
 					if(cango.indexOf(row.toString() + "," + col.toString()) !== -1){
 						$(".current").removeClass("current");
+						$(".cango").removeClass("cango");
 						this.innerHTML = index;
 						index = index + 1;
 						$(this).css("cursor","default");
@@ -129,7 +130,7 @@
 							for(var i = 0; i < cango.length;i++){
 								nowcango = cango[i].split(",");
 								nowcango = ".row" + nowcango[0] + ".col" + nowcango[1];
-								$(nowcango).addClass("cango"); 
+								$(nowcango).addClass("cango");
 							}
 						}
 					}
