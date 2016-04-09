@@ -85,29 +85,29 @@ window.onload = function() {
 		$(current).addClass("noclick");
 		$(current).addClass("current");
 		cango = [];
-		if(row - 3 > 0 && taken.indexOf((row - 3).toString() + "," + col) === -1){
-			cango[cango.length] = (row - 3).toString() + "," + col.toString();
+		if(parseInt(row) - 3 > 0 && taken.indexOf((parseInt(row) - 3).toString() + "," + parseInt(col)) === -1){
+			cango[cango.length] = (parseInt(row) - 3).toString() + "," + parseInt(col).toString();
 		}
-		if(row + 3 < 6 && taken.indexOf((row + 3).toString() + "," + col) === -1){
-			cango[cango.length] = (row + 3).toString() + "," + col.toString();
+		if(parseInt(row) + 3 < 6 && taken.indexOf((parseInt(row) + 3).toString() + "," + parseInt(col)) === -1){
+			cango[cango.length] = (parseInt(row) + 3).toString() + "," + parseInt(col).toString();
 		}
-		if(col - 3 > 0 && taken.indexOf(row + "," + (col - 3).toString()) === -1){
-			cango[cango.length] = row + "," + (col - 3).toString();
+		if(parseInt(col) - 3 > 0 && taken.indexOf(parseInt(row) + "," + (parseInt(col) - 3).toString()) === -1){
+			cango[cango.length] = parseInt(row) + "," + (parseInt(col) - 3).toString();
 		}
-		if(col + 3 < 6 && taken.indexOf(row + "," + (col + 3).toString()) === -1){
-			cango[cango.length] = row + "," + (col + 3).toString();
+		if(parseInt(col) + 3 < 6 && taken.indexOf(parseInt(row) + "," + (parseInt(col) + 3).toString()) === -1){
+			cango[cango.length] = parseInt(row) + "," + (parseInt(col) + 3).toString();
 		}
-		if(row - 2 > 0 && col - 2 > 0 && taken.indexOf((row - 2).toString() + "," + (col - 2).toString()) === -1){
-			cango[cango.length] = (row - 2).toString() + "," + (col - 2).toString();
+		if(parseInt(row) - 2 > 0 && parseInt(col) - 2 > 0 && taken.indexOf((parseInt(row) - 2).toString() + "," + (parseInt(col) - 2).toString()) === -1){
+			cango[cango.length] = (parseInt(row) - 2).toString() + "," + (parseInt(col) - 2).toString();
 		}
-		if(row + 2 < 6 && col + 2 < 6 && taken.indexOf((row + 2).toString() + "," + (col + 2).toString()) === -1){
-			cango[cango.length] = (row + 2).toString() + "," + (col + 2).toString();
+		if(parseInt(row) + 2 < 6 && parseInt(col) + 2 < 6 && taken.indexOf((parseInt(row) + 2).toString() + "," + (parseInt(col) + 2).toString()) === -1){
+			cango[cango.length] = (parseInt(row) + 2).toString() + "," + (parseInt(col) + 2).toString();
 		}
-		if(row - 2 > 0 && col + 2 < 6 && taken.indexOf((row - 2).toString() + "," + (col + 2).toString()) === -1){
-			cango[cango.length] = (row - 2).toString() + "," + (col + 2).toString();
+		if(parseInt(row) - 2 > 0 && parseInt(col) + 2 < 6 && taken.indexOf((parseInt(row) - 2).toString() + "," + (parseInt(col) + 2).toString()) === -1){
+			cango[cango.length] = (parseInt(row) - 2).toString() + "," + (parseInt(col) + 2).toString();
 		}
-		if(row + 2 < 6 && col - 2 > 0 && taken.indexOf((row + 2).toString() + "," + (col - 2).toString()) === -1){
-			cango[cango.length] = (row + 2).toString() + "," + (col - 2).toString();
+		if(parseInt(row) + 2 < 6 && parseInt(col) - 2 > 0 && taken.indexOf((parseInt(row) + 2).toString() + "," + (parseInt(col) - 2).toString()) === -1){
+			cango[cango.length] = (parseInt(row) + 2).toString() + "," + (parseInt(col) - 2).toString();
 		}
 		if(cango.length === 0){
 			/*$("#modal").modal();*/
