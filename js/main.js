@@ -71,11 +71,13 @@ window.onload = function() {
 		taken.pop();
 		$(".current").innerHTML = "";
 		$(".current").removeClass("current");
+		$(".noclick:last-of-type").removeClass("noclick");
 		$(".cango").removeClass("cango");
 		pos = taken[taken.length-1];
 		pos = pos.split(",");
 		row = pos[0];
 		col = pos[1];
+		alert("Row:"+row+"Col:"+col);
 		current = $(".row" + row + ".col" + col);
 		index = index - 1;
 		$(current).css("cursor","default");
