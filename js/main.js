@@ -109,7 +109,7 @@ window.onload = function() {
 			cango[cango.length] = (row + 2).toString() + "," + (col - 2).toString();
 		}
 		if(cango.length === 0){
-			$("#modal").modal();
+			/*$("#modal").modal();*/
 		}else{
 			var nowcango;
 			for(var i = 0; i < cango.length;i++){
