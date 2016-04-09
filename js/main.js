@@ -19,6 +19,8 @@ window.onload = function() {
 			if(cango.indexOf(row.toString() + "," + col.toString()) !== -1){
 				$(".current").removeClass("current");
 				$(".cango").removeClass("cango");
+				$(".last").removeClass("last");
+				$(this).addClass("last");
 				this.innerHTML = index;
 				index = index + 1;
 				$(this).css("cursor","default");
@@ -69,16 +71,14 @@ window.onload = function() {
 	$("#undo").on("click",function(){
 		//dostuff
 		taken.pop();
-		alert(taken);
 		$(".current").innerHTML = "";
 		$(".current").removeClass("current");
-		$(".noclick:last-child").removeClass("noclick");
+		$(".last").removeClass("noclick");
 		$(".cango").removeClass("cango");
-		pos = taken[taken.length-1];
+		pos = taken[taken.length - 1];
 		pos = pos.split(",");
 		row = pos[0];
 		col = pos[1];
-		alert(row + 3);
 		current = $(".row" + row + ".col" + col);
 		index = index - 1;
 		$(current).css("cursor","default");
