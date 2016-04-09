@@ -8,6 +8,7 @@ window.onload = function() {
 	var taken = [];
 	$(".gridcell").on("click",function() {
 		if(this.innerHTML === "" && this.className !== "noclick"){
+			//determine click position
 			var pos = this.className;
 			pos = pos.replace("gridcell ", "");
 			pos = pos.replace("row", "");
@@ -24,6 +25,7 @@ window.onload = function() {
 				$(this).addClass("noclick");
 				$(this).addClass("current");
 				taken[taken.length] = row + "," + col;
+				// Where can it go?
 				cango = [];
 				if(row - 3 > 0 && taken.indexOf((row - 3).toString() + "," + col) === -1){
 					cango[cango.length] = (row - 3).toString() + "," + col.toString();
@@ -50,8 +52,10 @@ window.onload = function() {
 					cango[cango.length] = (row + 2).toString() + "," + (col - 2).toString();
 				}
 				if(cango.length === 0){
+					//if game is over, open the modal.
 					$("#modal").modal();
 				}else{
+					//if it is not, highlight all the items in cango array
 					var nowcango;
 					for(var i = 0; i < cango.length;i++){
 						nowcango = cango[i].split(",");
@@ -64,7 +68,7 @@ window.onload = function() {
 	});
 	$("#undo").on("click",function(){
 		//dostuff
-		
+
 	});
 	$(".btn").on("click",function(){
 		location.reload();
