@@ -69,7 +69,6 @@ window.onload = function() {
 		}
 	});
 	$("#undo").on("click",function(){
-		//dostuff
 		taken.pop();
 		$(".last").text("");
 		$(".current").removeClass("current");
