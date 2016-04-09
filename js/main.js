@@ -74,4 +74,5 @@ function main(obj){
 				$(nowcango).addClass("cango");
 			}
 		}
+		return true;
 }
