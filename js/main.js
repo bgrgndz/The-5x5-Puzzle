@@ -72,10 +72,11 @@ window.onload = function() {
 		$(".current").innerHTML = "";
 		$(".current").removeClass("current");
 		$(".cango").removeClass("cango");
-		pos = taken[taken.lenght-1].split(",");
+		pos = taken[taken.length-1];
+		pos = pos.split(",");
 		row = pos[0];
 		col = pos[1];
-		current = $(".row"+row+".col"+col);
+		current = $(".row" + row + ".col" + col);
 		index = index - 1;
 		$(current).css("cursor","default");
 		$(current).addClass("noclick");
