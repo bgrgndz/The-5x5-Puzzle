@@ -68,3 +68,8 @@ strong{
 .cango{
 	border: 5px solid #969696;
 }
+#undo{
+	border:1px solid #969696;
+	background:none;
+	padding:10px;
+}
