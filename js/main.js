@@ -74,6 +74,7 @@ window.onload = function() {
 		$(".last").html("");
 		$(".current").removeClass("current");
 		$(".last").removeClass("noclick");
+		$(".last").addClass("current")
 		$(".last").removeClass("last");
 		$(".cango").removeClass("cango");
 		pos = taken[taken.length - 1];
