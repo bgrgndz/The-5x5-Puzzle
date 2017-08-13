@@ -71,9 +71,10 @@ window.onload = function() {
 	});
 	$("#undo").on("click",function(){
 		taken.pop();
-		$(".last").text("");
+		$(".last").html("");
 		$(".current").removeClass("current");
 		$(".last").removeClass("noclick");
+		$(".last").removeClass("last");
 		$(".cango").removeClass("cango");
 		pos = taken[taken.length - 1];
 		pos = pos.split(",");
